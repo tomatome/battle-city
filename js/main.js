@@ -29,7 +29,8 @@ var homeProtectedTime = -1;
 var propTime = 300;
 
 $(document).ready(function(){
-	
+	SCREEN_WIDTH = document.body.clientWidth 
+	SCREEN_HEIGHT = document.body.clientHeight  
 	initScreen();
 	initObject();
 	
