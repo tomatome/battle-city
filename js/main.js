@@ -36,7 +36,7 @@ $(document).ready(function(){
 	});
 	SCREEN_WIDTH = document.body.clientHeight 
 	SCREEN_HEIGHT = document.body.clientWidth
-	alert(SCREEN_WIDTH+":"+SCREEN_HEIGHT)
+	//alert(SCREEN_WIDTH+":"+SCREEN_HEIGHT)
 	initScreen();
 	initObject();
 	
