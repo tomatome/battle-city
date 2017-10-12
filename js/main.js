@@ -29,8 +29,14 @@ var homeProtectedTime = -1;
 var propTime = 300;
 
 $(document).ready(function(){
-	SCREEN_WIDTH = document.body.clientWidth 
-	SCREEN_HEIGHT = document.body.clientHeight  
+	$("body").css({
+	'transform':'rotate(90deg)',
+	'-webkit-transform':'rotate(90deg)',
+	'-moz-transform':'rotate(90deg)'
+	});
+	SCREEN_WIDTH = document.body.clientHeight 
+	SCREEN_HEIGHT = document.body.clientWidth
+	alert(SCREEN_WIDTH+":"+SCREEN_HEIGHT)
 	initScreen();
 	initObject();
 	
