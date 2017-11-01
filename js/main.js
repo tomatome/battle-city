@@ -7,7 +7,7 @@ var overCtx;//结束画布
 var menu = null;//菜单
 var stage = null;//舞台
 var map = null;//地图
-var player1 = null;//玩家1 
+var player1 = null;//玩家1 //
 var player2 = null;//玩家2
 var prop = null;
 var enemyArray = [];//敌方坦克
