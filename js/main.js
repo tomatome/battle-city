@@ -34,8 +34,8 @@ $(document).ready(function(){
 	'-webkit-transform':'rotate(90deg)',
 	'-moz-transform':'rotate(90deg)'
 	});
-	SCREEN_WIDTH = document.body.clientHeight 
-	SCREEN_HEIGHT = document.body.clientWidth
+	SCREEN_WIDTH = window.innerWidth;
+	SCREEN_HEIGHT = window.innerHeight;
 	//alert(SCREEN_WIDTH+":"+SCREEN_HEIGHT)
 	initScreen();
 	initObject();
