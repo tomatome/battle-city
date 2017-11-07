@@ -1,45 +1,48 @@
-﻿<!DOCTYPE html>
-<html lang="zh" class="no-js demo-1">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
-		<meta name="screen-orientation" content="portrait"><!-- uc强制竖屏 -->
-		<meta name="x5-orientation" content="portrait"><!-- QQ强制竖屏 -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/Helper.js"></script>
-		<script src="js/keyboard.js"></script>
-		<script src="js/const.js"></script>
-		<script src="js/level.js"></script>
-		<script src="js/crackAnimation.js"></script>
-		<script src="js/prop.js"></script>
-		<script src="js/bullet.js"></script>
-		<script src="js/tank.js"></script>
-		<script src="js/num.js"></script>
-		<script src="js/menu.js"></script>
-		<script src="js/map.js"></script>
-		<script src="js/Collision.js"></script>
-		<script src="js/stage.js"></script>
-		<script src="js/main.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<style type="text/css">
-			#canvasDiv canvas{
-				position:absolute;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="main clearfix">
-				<div id="canvasDiv" >
-					<canvas id="wallCanvas" ></canvas> 
-					<canvas id="tankCanvas" ></canvas>
-					<canvas id="grassCanvas" ></canvas>
-					<canvas id="overCanvas" ></canvas> 
-					<canvas id="stageCanvas" ></canvas>
-				</div>
-			</div>
-			
-		</div><!-- /container -->
-	</body>
-</html>
+<!DOCTYPE html> 
+<head>
+	<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>tank</title>
+    <script src="js/phaser.min.js"></script>
+    <script src="js/phaser-virtual-joystick.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/objects/Prefab.js"></script>
+    <script src="js/objects/Tank.js"></script>
+    <script src="js/objects/Bullet.js"></script>
+    <script src="js/objects/PlayerBullet.js"></script>
+    <script src="js/objects/EnemyBullet.js"></script>
+    <script src="js/objects/Enemy.js"></script>
+    <script src="js/objects/Player.js"></script>
+    <script src="js/objects/Player1.js"></script>
+    <script src="js/objects/Player2.js"></script>
+    <script src="js/objects/Nest.js"></script>
+    <script src="js/objects/Bouns.js"></script>
+    <script src="js/managers/ScoreManager.js"></script>
+    <script src="js/managers/LevelManager.js"></script>
+    <script src="js/managers/BounsManager.js"></script>
+    <script src="js/managers/SoundManager.js"></script>
+    <script src="js/states/BaseState.js"></script>
+    <script src="js/states/BootState.js"></script>
+    <script src="js/states/PreloadState.js"></script>
+    <script src="js/states/StartState.js"></script>
+    <script src="js/states/GameState.js"></script>
+    <script src="js/states/OverState.js"></script>
+    <script src="js/main.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      canvas {
+        margin: 0 auto;
+      }
+      .game {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+</head>
+<body>
+  <div id="game" class="game"></div>
+</body>
