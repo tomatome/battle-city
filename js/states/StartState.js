@@ -18,9 +18,9 @@ GameTank.StartState.prototype.create = function () {
   var logo = game.add.image(game.width/2, 150, 'logo');
   logo.anchor.setTo(0.5, 0.5);
   logo.scale.setTo(1.7, 1.7);
-  style = { font: "bold 20px Arial", fill: "#fff" };
-  var player1 = game.add.text(game.width/2, game.height/2, "单机练习", style);
-  var player2 = game.add.text(game.width/2, game.height/2 + 40, "多人联网", style);
+  style = { font: "bold 24px 微软雅黑", fill: "#fff" };
+  var player1 = game.add.text(game.width/2-50, game.height/2, "单机练习", style);
+  var player2 = game.add.text(game.width/2-50, game.height/2 + 60, "多人联网", style);
  	player1.inputEnabled = true;
 	player1.events.onInputDown.add(oneDown, this);
   player2.inputEnabled = true;
@@ -37,10 +37,10 @@ GameTank.StartState.prototype.create = function () {
   
 };
 
-function oneDown() {
+function oneDown(item) {
 	var maxSpeed = 400;
   //this.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.tank.body.velocity);
-
+  
   game.playerNum = 1;
   // 从第几关开始
   game.level = START_LEVEL;

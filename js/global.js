@@ -2,6 +2,9 @@
 var TILE_WIDTH = 16;
 var TILE_HEIGHT = 16;
 
+var GAME_WIDTH = 480;
+var GAME_HEIGHT = 720
+
 // 每一关敌人的数量
 var ENEMY_NUMBER = 20;
 
