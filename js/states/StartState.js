@@ -39,7 +39,7 @@ GameTank.StartState.prototype.create = function () {
 
 function oneDown() {
 	var maxSpeed = 400;
-  this.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.tank.body.velocity);
+  //this.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.tank.body.velocity);
 
   game.playerNum = 1;
   // 从第几关开始
@@ -48,7 +48,7 @@ function oneDown() {
 }
 function multDown() {
 	var maxSpeed = 400;
-  this.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.tank.body.velocity);
+  //this.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.tank.body.velocity);
 
   game.playerNum = 2;
   // 从第几关开始
