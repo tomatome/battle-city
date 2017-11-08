@@ -16,6 +16,7 @@ GameTank.PreloadState.prototype.preload = function () {
   //game.load.setPreloadSprite(preloadSprite);
   game.load.atlas('generic', 'assets/generic-joystick.png', 'assets/generic-joystick.json');
   game.load.image('logo', 'assets/logo.png');
+  game.load.image('foot', 'assets/foot.png');
   game.load.tilemap('map', 'assets/map.json', null, Phaser.Tilemap.TILED_JSON);
   game.load.image('tiles', 'assets/map_tile.jpg');
   game.load.image('brick', 'assets/brick.jpg');
