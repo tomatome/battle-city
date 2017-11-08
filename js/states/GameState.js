@@ -95,7 +95,7 @@ GameTank.GameState.prototype.create = function () {
   game.player2FastTank = 0;
   game.player2StrongTank = 0;
   
-  //this.physics.arcade.enable(GameTank.Player1());
+  this.physics.arcade.enable(this.player1);
   this.pad = this.game.plugins.add(Phaser.VirtualJoystick);
   this.stick = this.pad.addStick(0, 0, 50, 'generic');
   this.stick.alignBottomLeft(10);
