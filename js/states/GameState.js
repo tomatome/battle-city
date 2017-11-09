@@ -45,11 +45,11 @@ GameTank.GameState.prototype.create = function () {
   
   // 玩家的出生地
   this.playerBores = [];
-  this.playerBores[0] = {x: 9 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
-  this.playerBores[1] = {x: 17 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
+  this.playerBores[0] = {x: 9 * TILE_WIDTH, y: GAME_HEIGHT};
+  this.playerBores[1] = {x: 17 * TILE_WIDTH, y: GAME_HEIGHT};
   
   // 老巢
-  var nestPosition = {x: 13 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
+  var nestPosition = {x: 13 * TILE_WIDTH, y: GAME_HEIGHT};
   this.nest = new GameTank.Nest(this, nestPosition, 'nest', 'nest');
   
   // 产生敌人

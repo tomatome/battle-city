@@ -1,6 +1,6 @@
 // tile的宽和高
-var TILE_WIDTH = 15;
-var TILE_HEIGHT = 15;
+var TILE_WIDTH = 16;
+var TILE_HEIGHT = 16;
 
 var GAME_WIDTH = 480;
 var GAME_HEIGHT = 720
