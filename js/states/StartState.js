@@ -13,12 +13,12 @@ GameTank.StartState.prototype.constructor = GameTank.StartState;
 GameTank.StartState.prototype.create = function () {
   "use strict";
   var style = { font: "bold 14px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-  var logo = game.add.image(GAME_WIDTH/2, 150, 'logo');
+  var logo = game.add.image(GAME_WIDTH/2, GAME_HEIGHT/4, 'logo');
   logo.anchor.setTo(0.5, 0.5);
-  logo.scale.setTo(1.7, 1.7);
-  var foot = game.add.image(GAME_WIDTH/2, GAME_HEIGHT-100, 'foot');
+  logo.scale.setTo(1, 1);
+  var foot = game.add.image(GAME_WIDTH/2, GAME_HEIGHT-80, 'foot');
   foot.anchor.setTo(0.5, 0.5);
-  foot.scale.setTo(1.7, 1.7);
+  foot.scale.setTo(1, 1);
   style = { font: "bold 24px 微软雅黑", fill: "#fff" };
   var player1 = game.add.text(GAME_WIDTH/2-50, GAME_HEIGHT/2, "单机练习", style);
   var player2 = game.add.text(GAME_WIDTH/2-50, GAME_HEIGHT/2 + 60, "多人联网", style);

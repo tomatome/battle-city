@@ -45,11 +45,11 @@ GameTank.GameState.prototype.create = function () {
   
   // 玩家的出生地
   this.playerBores = [];
-  this.playerBores[0] = {x: 9 * TILE_WIDTH, y: game.height - TILE_HEIGHT};
-  this.playerBores[1] = {x: 17 * TILE_WIDTH, y: game.height - TILE_HEIGHT};
+  this.playerBores[0] = {x: 9 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
+  this.playerBores[1] = {x: 17 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
   
   // 老巢
-  var nestPosition = {x: 13 * TILE_WIDTH, y: game.height - TILE_HEIGHT};
+  var nestPosition = {x: 13 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
   this.nest = new GameTank.Nest(this, nestPosition, 'nest', 'nest');
   
   // 产生敌人
@@ -76,6 +76,14 @@ GameTank.GameState.prototype.create = function () {
     this.player2.changeAnim();
   }
   
+  /*this.physics.arcade.enable(this.player1);
+  this.pad = this.game.plugins.add(Phaser.VirtualJoystick);
+  
+  this.stick = this.pad.addStick(0, 0, 50, 'generic');
+  this.stick.alignBottomLeft(10)
+  this.buttonA = this.pad.addButton(0, 0, 'generic', 'button1-up', 'button1-down');
+  this.buttonA.alignBottomRight(20)*/
+  
   // 加载关卡
   this.levelManager = new GameTank.LevelManager(this);
   this.levelManager.load('level' + game.level);
@@ -95,12 +103,6 @@ GameTank.GameState.prototype.create = function () {
   game.player2FastTank = 0;
   game.player2StrongTank = 0;
   
-  this.physics.arcade.enable(this.player1);
-  this.pad = this.game.plugins.add(Phaser.VirtualJoystick);
-  this.stick = this.pad.addStick(0, 0, 50, 'generic');
-  this.stick.alignBottomLeft(10);
-  this.buttonA = this.pad.addButton(300, 100, 'generic', 'button1-up', 'button1-down');
-  this.buttonA.alignBottomRight(20);
 };
 
 // 产生敌人的位置
