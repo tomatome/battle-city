@@ -29,6 +29,8 @@ GameTank.BootState.prototype.preload = function () {
   game.scale.pageAlignHorizontally = true;
   game.scale.pageAlignVertically = true;
   game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+  //game.scale.scaleMode =  Phaser.ScaleManager.USER_SCALE;
+  //game.scale.setUserScale(0.6, 1.4);
   if(game.scale.isLandscape) {
     game.scale.correct = true;
     game.scale.setGameSize(GAME_WIDTH, GAME_HEIGHT);

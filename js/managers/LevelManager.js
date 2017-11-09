@@ -14,7 +14,7 @@ GameTank.LevelManager = function(gameState) {
     5: "waterh"
   }
   this.map = [];
-  for(var i=0; i<26; i++) {
+  for(var i=0; i<LEVEL_COL; i++) {
     this.map[i] = [];
   }
 };
@@ -28,6 +28,7 @@ GameTank.LevelManager.prototype.load = function(level) {
     for(var j=0; j<this.levelJSON[0].length; j++) {
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
+        tile.scale.setTo(1.5,1.5)
         tile.body.immovable = true;
         tile.reset(j * TILE_WIDTH, i * TILE_HEIGHT);
         tile.xIndex = j;

@@ -1,12 +1,15 @@
 // tile的宽和高
 var TILE_WIDTH = 14;
-var TILE_HEIGHT = 26;
+var TILE_HEIGHT = 14;
 
 var GAME_WIDTH = 480;
 var GAME_HEIGHT = 720
 
 // 每一关敌人的数量
 var ENEMY_NUMBER = 20;
+
+var LEVEL_ROW = 26;
+var LEVEL_COL = 26;
 
 // 总关数
 var TOTAL_LEVEL = 15;

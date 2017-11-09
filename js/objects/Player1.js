@@ -20,7 +20,7 @@ GameTank.Player1 = function(gameState, position, texture, group, properties) {
 	//this.buttonA.alignBottomRight(20);
 	this.buttonA.posX = 40
 	this.buttonA.posY = GAME_WIDTH - 40
-	//this.buttonA.angle = 90
+	this.buttonA.angle = 270
 	this.buttonA.onDown.add(this.fire, this);
 };
 
