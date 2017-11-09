@@ -8,12 +8,15 @@ GameTank.Player1 = function(gameState, position, texture, group, properties) {
 	this.space = gameState.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	this.space.onDown.add(this.fire, this);
 
+	this.curAngle = 0
+
 	this.pad = this.game.plugins.add(Phaser.VirtualJoystick);
 	this.stick = this.pad.addStick(0, 0, 50, 'generic');
 	this.stick.alignBottomLeft(10);
-
+console.log('init.stick.angle:',this.stick.angle); 
 	this.buttonA = this.pad.addButton(100, 300, 'generic', 'button1-up', 'button1-down');
 	this.buttonA.alignBottomRight(20);
+	this.buttonA.angle = 90
 };
 
 GameTank.Player1.prototype = Object.create(GameTank.Player.prototype);
@@ -41,19 +44,26 @@ GameTank.Player1.prototype.update = function() {
 		this.body.velocity.y = 0;
 	}
 
+
+var maxSpeed = 100
 	if(this.stick.isDown) {
-		if(this.stick.direction === Phaser.LEFT) {
-			this.move("left");
-		} else if(this.stick.direction === Phaser.RIGHT) {
-			this.move("right");
-		} else if(this.stick.direction === Phaser.UP) {
+		//game.physics.arcade.velocityFromRotation(this.stick.rotation, this.stick.force * maxSpeed, this.body.velocity);
+		console.log('this.stick.angle:',this.stick.angle); 
+		var angle = this.stick.angle + this.curAngle
+		if(angle > -45 && angle < 45 ) {
 			this.move("up");
-		} else if(this.stick.direction === Phaser.DOWN) {
-			tthis.move("down");
-		}
+		} else if(angle > 45 && angle < 135) {
+			this.move("right");
+		} else if(angle > -135 && angle < -45 ) {
+			this.move("left");
+		} else {
+			this.move("down");
+		} 
+		this.curAngle = this.stick.angle
 	} else {
 		this.body.velocity.set(0);
 	}
+
 
 };
 
