@@ -13,16 +13,6 @@ GameTank.StartState.prototype.constructor = GameTank.StartState;
 GameTank.StartState.prototype.create = function () {
   "use strict";
   
-  game.scale.onOrientationChange.add(function() {
-    if(game.scale.isLandscape) {
-      game.scale.correct = true;
-      game.scale.setGameSize(GAME_WIDTH, GAME_HEIGHT);
-    } else {
-      game.scale.correct = false;
-      game.scale.setGameSize(GAME_HEIGHT, GAME_WIDTH);
-    }
-  }, this)
-  
   var style = { font: "bold 14px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   var logo = game.add.image(GAME_WIDTH/2, GAME_HEIGHT/4, 'logo');
   logo.anchor.setTo(0.5, 0.5);

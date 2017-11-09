@@ -13,16 +13,6 @@ GameTank.GameState.prototype.constructor = GameTank.GameState;
 GameTank.GameState.prototype.create = function () {
   "use strict";
   
-  game.scale.onOrientationChange.add(function() {
-    if(game.scale.isLandscape) {
-      game.scale.correct = true;
-      game.scale.setGameSize(GAME_WIDTH, GAME_HEIGHT);
-    } else {
-      game.scale.correct = false;
-      game.scale.setGameSize(GAME_HEIGHT, GAME_WIDTH);
-    }
-  }, this)
-  
   // 分数管理
   this.scoreManager = new GameTank.ScoreManager(this);
   this.scoreManager.setLevel(game.level);
@@ -56,11 +46,11 @@ GameTank.GameState.prototype.create = function () {
   
   // 玩家的出生地
   this.playerBores = [];
-  this.playerBores[0] = {x: 9 * TILE_WIDTH, y: GAME_HEIGHT};
-  this.playerBores[1] = {x: 17 * TILE_WIDTH, y: GAME_HEIGHT};
+  this.playerBores[0] = {x: 9 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
+  this.playerBores[1] = {x: 17 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
   
   // 老巢
-  var nestPosition = {x: 13 * TILE_WIDTH, y: GAME_HEIGHT};
+  var nestPosition = {x: 13 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
   this.nest = new GameTank.Nest(this, nestPosition, 'nest', 'nest');
   
   // 产生敌人
