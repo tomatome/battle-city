@@ -14,8 +14,11 @@ GameTank.LevelManager = function(gameState) {
     5: "waterh"
   }
   this.map = [];
-  for(var i=0; i<LEVEL_COL; i++) {
-    this.map[i] = [];
+  for(var i=0; i<LEVEL_ROW; i++) {
+  	this.map[i] = [];
+  	for(var j=0; j<LEVEL_COL; j++) {
+    	this.map[i][j] = undefined;
+   }
   }
 };
 
@@ -28,7 +31,7 @@ GameTank.LevelManager.prototype.load = function(level) {
     for(var j=0; j<this.levelJSON[0].length; j++) {
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
-        tile.scale.setTo(1.5,1.5)
+        tile.scale.setTo(1,1)
         tile.body.immovable = true;
         tile.reset(j * TILE_WIDTH, i * TILE_HEIGHT);
         tile.xIndex = j;

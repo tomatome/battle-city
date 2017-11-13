@@ -50,10 +50,13 @@ Phaser.VirtualJoystick = function (game, parent) {
     */
     this._pointerTotal = 0;
     
+    this.game = game
+    
 };
 
 Phaser.VirtualJoystick.prototype = Object.create(Phaser.Plugin.prototype);
 Phaser.VirtualJoystick.prototype.constructor = Phaser.VirtualJoystick;
+
 
 /**
 * Used by VirtualJoystick.Stick.motionLock. Defines full freedom of movement.

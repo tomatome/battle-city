@@ -59,6 +59,5 @@ GameTank.PreloadState.prototype.preload = function () {
 
 GameTank.PreloadState.prototype.create = function () {
   "use strict";
-  
-  game.state.start('StartState');
+	game.state.start('StartState');
 };
