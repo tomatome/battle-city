@@ -11,15 +11,9 @@ GameTank.Player1 = function(gameState, position, texture, group, properties) {
 	this.pad = this.game.plugins.add(Phaser.VirtualJoystick, game);
 	this.stick = this.pad.addStick(0, 0, 50, 'generic');
 	this.stick.alignBottomLeft(10);
-
-	//this.stick.posX = 40
-	//this.stick.posY = 40
-
+	
 	this.buttonA = this.pad.addButton(20, GAME_HEIGHT-50, 'generic', 'button1-up', 'button1-down');
-	//this.buttonA.alignBottomRight(20);
-	this.buttonA.posX = 40
-	this.buttonA.posY = GAME_WIDTH - 40
-	this.buttonA.angle = 270
+	this.buttonA.alignBottomRight(20);
 	this.buttonA.onDown.add(this.fire, this);
 };
 
@@ -50,13 +44,13 @@ GameTank.Player1.prototype.update = function() {
 
 	if(this.stick.isDown) {
 		if(this.stick.quadrant == 0 ) {
-			this.move("up");
-		} else if(this.stick.quadrant == 1) {
 			this.move("right");
-		} else if(this.stick.quadrant == 2 ) {
+		} else if(this.stick.quadrant == 1) {
 			this.move("down");
-		} else {
+		} else if(this.stick.quadrant == 2 ) {
 			this.move("left");
+		} else {
+			this.move("up");
 		} 	
 	} else {
 		this.body.velocity.set(0);
