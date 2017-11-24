@@ -30,7 +30,7 @@ GameTank.LevelManager.prototype.load = function(level) {
   this.levelJSON = game.cache.getJSON(level);
   var curRow = LEVEL_ROW;
 	var curCol = LEVEL_COL;
-  var skipRow = (24 - curRow)/2;
+  var skipRow = (24 - curRow);
 	var skipCol = (36 - curCol)/2;
 	var curi = 0;
 	//console.log(skipRow, skipCol)
@@ -40,26 +40,30 @@ GameTank.LevelManager.prototype.load = function(level) {
   		continue;
   	}
   	var curj = 0;
+  	var a = 0;
     for(var j=0; j<36; j++) {
     	if (j<skipCol || j> (36 - skipCol - 1)) {
     		continue;
     	}
+    	//console.log(curi, curj)
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
         tile.scale.setTo(1,1)
         tile.body.immovable = true;
         tile.reset(curj * TILE_WIDTH, curi * TILE_HEIGHT);
-        tile.xIndex = curj;
-        tile.yIndex = curi;
+        tile.xIndex = curi;
+        tile.yIndex = curj;
         tile.type = this.levelJSON[curi][curj];
-        this.map[curi][curj] = tile;  
+        this.map[curi][curj] = tile;
+        a = 1;
       } else {
-      	//console.log(curi, curj)
-        this.map[curi][curj] = undefined;    
+        this.map[curi][curj] = undefined;  
+        a = 1;
       }
       curj = curj + 1;
     }
-    curi = curi + 1;
+    if (a == 1)
+    	curi = curi + 1;   
   }
 }
 
