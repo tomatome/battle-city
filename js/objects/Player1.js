@@ -8,13 +8,14 @@ GameTank.Player1 = function(gameState, position, texture, group, properties) {
 	this.space = gameState.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 	this.space.onDown.add(this.fire, this);
 	
-	this.pad = this.game.plugins.add(Phaser.VirtualJoystick, game);
-	this.stick = this.pad.addStick(0, 0, 100, 'generic');
-	this.stick.alignBottomLeft(10);
-	this.stick.baseSprite.scale.set(0.7)
-	this.stick.stickSprite.scale.set(0.7)
+	this.pad = gameState.game.plugins.add(Phaser.VirtualJoystick, game);
+	this.stick = this.pad.addStick(1, 1, 50, 'generic');
+	this.stick.alignBottomLeft(3);
+	this.stick.baseSprite.scale.set(0.3)
+	this.stick.stickSprite.scale.set(0.3)
 	this.buttonA = this.pad.addButton(20, game.height-50, 'generic', 'button1-up', 'button1-down');
-	this.buttonA.alignBottomRight(20);
+	this.buttonA.alignBottomRight(10);
+	this.buttonA.sprite.scale.set(0.6)
 	this.buttonA.onDown.add(this.fire, this);
 };
 
