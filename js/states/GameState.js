@@ -15,7 +15,10 @@ GameTank.GameState.prototype.create = function () {
   
   GAME_WIDTH = game.width-92;
 	GAME_HEIGHT = game.height;
-  
+	LEVEL_ROW = GAME_HEIGHT/16+1>24?24:parseInt(GAME_HEIGHT/16+1);
+	LEVEL_COL = GAME_WIDTH/16+1>36?36:parseInt(GAME_WIDTH/16+1);
+  alert(GAME_WIDTH/16+1+":"+GAME_HEIGHT/16+1)
+  alert(LEVEL_ROW+":"+LEVEL_COL)
   // 分数管理
   this.scoreManager = new GameTank.ScoreManager(this);
   this.scoreManager.setLevel(game.level);
@@ -53,7 +56,6 @@ GameTank.GameState.prototype.create = function () {
   this.playerBores[1] = {x: GAME_WIDTH/2 + 3 * TILE_WIDTH, y: GAME_HEIGHT - 2*TILE_HEIGHT};
   
   // 老巢
-  console.log(GAME_WIDTH/2,GAME_HEIGHT - 2*TILE_HEIGHT)
   var nestPosition = {x: GAME_WIDTH/2, y: GAME_HEIGHT - 2*TILE_HEIGHT};
   this.nest = new GameTank.Nest(this, nestPosition, 'nest', 'nest');
   
