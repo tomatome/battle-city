@@ -14,9 +14,9 @@ GameTank.LevelManager = function(gameState) {
     5: "waterh"
   }
   this.map = [];
-  for(var i=0; i<LEVEL_ROW; i++) {
+  for(var i=0; i<24; i++) {
   	this.map[i] = [];
-  	for(var j=0; j<LEVEL_COL; j++) {
+  	for(var j=0; j<36; j++) {
     	this.map[i][j] = undefined;
    }
   }
@@ -27,33 +27,36 @@ GameTank.LevelManager.prototype.constructor = GameTank.LevelManager;
 
 GameTank.LevelManager.prototype.load = function(level) {
   this.levelJSON = game.cache.getJSON(level);
-  var curRow = GAME_HEIGHT/16+1>24?24:parseInt(GAME_HEIGHT/16+1);
-	var curCol = GAME_WIDTH/16+1>36?36:parseInt(GAME_WIDTH/16+1);
-	if (curRow%2) {
-		curRow = curRow-1;
-	}
-	if (curCol%2){
-		curCol = curCol-1;
-	}
+  var curRow = LEVEL_ROW;
+	var curCol = LEVEL_COL;
   var skipRow = (24 - curRow)/2;
 	var skipCol = (36 - curCol)/2;
-  for(var i=0; i<LEVEL_ROW; i++) {
+	var curi = 0;
+  for(var i=0; i<24; i++) {
   	if ((i>=2) && (skipRow > 0)) {
   		skipRow = skipRow - 1;
   		continue
   	}
-    for(var j=skipCol; j<LEVEL_COL-skipCol; j++) {
+  	var curj = 0;
+    for(var j=0; j<36; j++) {
+    	if (j<skipCol || j> (36 - skipCol)) {
+    		continue
+    	}
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
         tile.scale.setTo(1,1)
         tile.body.immovable = true;
-        tile.reset(j * TILE_WIDTH, i * TILE_HEIGHT);
-        tile.xIndex = j;
-        tile.yIndex = i;
-        tile.type = this.levelJSON[i][j];
-        this.map[i][j] = tile;
+        tile.reset(curj * TILE_WIDTH, curi * TILE_HEIGHT);
+        tile.xIndex = curj;
+        tile.yIndex = curj;
+        tile.type = this.levelJSON[curi][curj];
+        this.map[curi][curj] = tile;
+        curi = curi + 1;
+        curj = curj + 1;
       } else {
-        this.map[i][j] = undefined;
+        this.map[curi][curj] = undefined;
+        curi = curi + 1;
+        curj = curj + 1;
       }
     }
   }

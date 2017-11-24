@@ -15,7 +15,18 @@ GameTank.GameState.prototype.create = function () {
   
   GAME_WIDTH = game.width-92;
 	GAME_HEIGHT = game.height;
-	
+	var curRow = GAME_HEIGHT/16+1>24?24:parseInt(GAME_HEIGHT/16+1);
+	var curCol = GAME_WIDTH/16+1>36?36:parseInt(GAME_WIDTH/16+1);
+	if (curRow%2) {
+		LEVEL_ROW = curRow-1;
+	}else {
+		LEVEL_ROW = curRow
+	}
+	if (curCol%2){
+		LEVEL_COL = curCol-1;
+	}else {
+		LEVEL_COL = curCol
+	}
   // 分数管理
   this.scoreManager = new GameTank.ScoreManager(this);
   this.scoreManager.setLevel(game.level);
@@ -49,11 +60,11 @@ GameTank.GameState.prototype.create = function () {
   
   // 玩家的出生地
   this.playerBores = [];
-  this.playerBores[0] = {x: GAME_WIDTH/2 - 3 * TILE_WIDTH, y: GAME_HEIGHT - 2*TILE_HEIGHT};
-  this.playerBores[1] = {x: GAME_WIDTH/2 + 3 * TILE_WIDTH, y: GAME_HEIGHT - 2*TILE_HEIGHT};
+  this.playerBores[0] = {x: GAME_WIDTH/2 - 3 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
+  this.playerBores[1] = {x: GAME_WIDTH/2 + 3 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
   
   // 老巢
-  var nestPosition = {x: GAME_WIDTH/2, y: GAME_HEIGHT - 2*TILE_HEIGHT};
+  var nestPosition = {x: GAME_WIDTH/2, y: GAME_HEIGHT - TILE_HEIGHT};
   this.nest = new GameTank.Nest(this, nestPosition, 'nest', 'nest');
   
   // 产生敌人
