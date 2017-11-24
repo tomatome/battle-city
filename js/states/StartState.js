@@ -15,11 +15,11 @@ GameTank.StartState.prototype.create = function () {
   
   var style = { font: "bold 22px 微软雅黑", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
 
-  var logo = game.add.image(game.width/2, 60, 'logo');
+  var logo = game.add.image(game.width/2, 30, 'logo');
   logo.anchor.x = 0.5
   var foot = game.add.image(game.width/2, game.height-60, 'foot');
 	foot.anchor.x = 0.5
-  var player1 = game.add.text(game.width/2, game.height/2+10, "单机练习", style);
+  var player1 = game.add.text(game.width/2, game.height/2, "单机练习", style);
   var player2 = game.add.text(game.width/2, game.height/2 + 40, "多人联网", style);
   player1.anchor.x = 0.5
  	player1.inputEnabled = true;
