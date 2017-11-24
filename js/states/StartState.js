@@ -13,24 +13,21 @@ GameTank.StartState.prototype.constructor = GameTank.StartState;
 GameTank.StartState.prototype.create = function () {
   "use strict";
   
-  var style = { font: "bold 14px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
-  var logo = game.add.image(GAME_WIDTH/2, GAME_HEIGHT/4, 'logo');
-  logo.anchor.setTo(0.5, 0.5);
-  logo.scale.setTo(0.5, 1);
-  var foot = game.add.image(GAME_WIDTH/2, GAME_HEIGHT-80, 'foot');
-  foot.anchor.setTo(0.5, 0.5);
-  foot.scale.setTo(0.5, 1);
-  style = { font: "bold 24px 微软雅黑", fill: "#fff" };
-  var player1 = game.add.text(GAME_WIDTH/2, GAME_HEIGHT/2, "单机练习", style);
-  var player2 = game.add.text(GAME_WIDTH/2, GAME_HEIGHT/2 + 60, "多人联网", style);
+  var style = { font: "bold 24px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+
+  var logo = game.add.image(game.width/2, 60, 'logo');
+  logo.anchor.x = 0.5
+  var foot = game.add.image(game.width/2, game.height-60, 'foot');
+	foot.anchor.x = 0.5
+  var player1 = game.add.text(game.width/2, game.height/2, "单机练习", style);
+  var player2 = game.add.text(game.width/2, game.height/2 + 50, "多人联网", style);
+  player1.anchor.x = 0.5
  	player1.inputEnabled = true;
 	player1.events.onInputDown.add(oneDown, this);
-	player1.anchor.setTo(0.5,0.5);
-	player1.scale.setTo(0.5, 1);
+	player2.anchor.x = 0.5
   player2.inputEnabled = true;
 	player2.events.onInputDown.add(multDown, this);
-	player2.anchor.setTo(0.5, 0.5);
-	player2.scale.setTo(0.5, 1);
+	
   /*this.tank = game.add.sprite(170, 251, 'player1');
   this.tank.animations.add('run', [0, 1], 10, true);
   this.tank.animations.play("run");

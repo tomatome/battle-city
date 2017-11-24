@@ -9,10 +9,11 @@ GameTank.Player1 = function(gameState, position, texture, group, properties) {
 	this.space.onDown.add(this.fire, this);
 	
 	this.pad = this.game.plugins.add(Phaser.VirtualJoystick, game);
-	this.stick = this.pad.addStick(0, 0, 50, 'generic');
+	this.stick = this.pad.addStick(0, 0, 100, 'generic');
 	this.stick.alignBottomLeft(10);
-	
-	this.buttonA = this.pad.addButton(20, GAME_HEIGHT-50, 'generic', 'button1-up', 'button1-down');
+	this.stick.baseSprite.scale.set(0.7)
+	this.stick.stickSprite.scale.set(0.7)
+	this.buttonA = this.pad.addButton(20, game.height-50, 'generic', 'button1-up', 'button1-down');
 	this.buttonA.alignBottomRight(20);
 	this.buttonA.onDown.add(this.fire, this);
 };
