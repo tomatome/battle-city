@@ -7,16 +7,16 @@ GameTank.ScoreManager = function(gameState) {
   Object.call(this);
   this.gameState = gameState;
   // 分数版
-  this.scoreSprite = game.add.sprite(416, 0);
+  this.scoreSprite = game.add.sprite(game.width-92, 0);
   game.physics.arcade.enable(this.scoreSprite);
   this.scoreSprite.body.immovable = true;
   // 要进行碰撞检测，需要设置宽和高
-  this.scoreSprite.body.width = 96;
-  this.scoreSprite.body.height = 416;
+  this.scoreSprite.body.width = 92;
+  this.scoreSprite.body.height = game.height;
   
   var scoreBack = game.add.graphics(0, 0);
   scoreBack.beginFill(0x999999);
-  scoreBack.drawRect(0, 0, 96, 416);
+  scoreBack.drawRect(0, 0, 92, game.width);
   scoreBack.endFill();
   this.scoreSprite.addChild(scoreBack);
   

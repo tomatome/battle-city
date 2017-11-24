@@ -13,7 +13,7 @@ GameTank.StartState.prototype.constructor = GameTank.StartState;
 GameTank.StartState.prototype.create = function () {
   "use strict";
   
-  var style = { font: "bold 24px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
+  var style = { font: "bold 24px 微软雅黑", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
 
   var logo = game.add.image(game.width/2, 60, 'logo');
   logo.anchor.x = 0.5

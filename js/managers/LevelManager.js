@@ -28,7 +28,9 @@ GameTank.LevelManager.prototype.constructor = GameTank.LevelManager;
 GameTank.LevelManager.prototype.load = function(level) {
   this.levelJSON = game.cache.getJSON(level);
   for(var i=0; i<this.levelJSON.length; i++) {
+  	console.log(this.levelJSON.length)
     for(var j=0; j<this.levelJSON[0].length; j++) {
+    	console.log(this.levelJSON[i][j])
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
         tile.scale.setTo(1,1)
@@ -37,9 +39,9 @@ GameTank.LevelManager.prototype.load = function(level) {
         tile.xIndex = j;
         tile.yIndex = i;
         tile.type = this.levelJSON[i][j];
-        this.map[j][i] = tile;
+        this.map[i][j] = tile;
       } else {
-        this.map[j][i] = undefined;
+        this.map[i][j] = undefined;
       }
     }
   }

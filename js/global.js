@@ -8,14 +8,14 @@ var GAME_HEIGHT = 720
 // 每一关敌人的数量
 var ENEMY_NUMBER = 20;
 
-var LEVEL_ROW = 26;
-var LEVEL_COL = 26;
+var LEVEL_ROW = 24;
+var LEVEL_COL = 36;
 
 // 总关数
-var TOTAL_LEVEL = 15;
+var TOTAL_LEVEL = 1;
 
 // 从哪一关开始
 var START_LEVEL = 1;
 
 // 产生奖品的概率
-var BOUNS_PERCENT = 0.5;
+var BOUNS_PERCENT = 0.7;

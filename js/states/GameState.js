@@ -13,6 +13,9 @@ GameTank.GameState.prototype.constructor = GameTank.GameState;
 GameTank.GameState.prototype.create = function () {
   "use strict";
   
+  GAME_WIDTH = game.width-92;
+	GAME_HEIGHT = game.height;
+  
   // 分数管理
   this.scoreManager = new GameTank.ScoreManager(this);
   this.scoreManager.setLevel(game.level);
@@ -28,7 +31,7 @@ GameTank.GameState.prototype.create = function () {
   ["brick", "iron", "grass", "waterv", "waterh"].forEach(function(key) {
     this.groups.map[key] = game.add.group();
     this.groups.map[key].enableBody = true;
-    this.groups.map[key].createMultiple(676, key);
+    this.groups.map[key].createMultiple(864, key);
   }.bind(this));
   
   // 子弹，奖品
@@ -46,11 +49,12 @@ GameTank.GameState.prototype.create = function () {
   
   // 玩家的出生地
   this.playerBores = [];
-  this.playerBores[0] = {x: GAME_WIDTH/2 - 3 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
-  this.playerBores[1] = {x: GAME_WIDTH/2 + 3 * TILE_WIDTH, y: GAME_HEIGHT - TILE_HEIGHT};
+  this.playerBores[0] = {x: GAME_WIDTH/2 - 3 * TILE_WIDTH, y: GAME_HEIGHT - 2*TILE_HEIGHT};
+  this.playerBores[1] = {x: GAME_WIDTH/2 + 3 * TILE_WIDTH, y: GAME_HEIGHT - 2*TILE_HEIGHT};
   
   // 老巢
-  var nestPosition = {x: GAME_WIDTH/2, y: GAME_HEIGHT - TILE_HEIGHT};
+  console.log(GAME_WIDTH/2,GAME_HEIGHT - 2*TILE_HEIGHT)
+  var nestPosition = {x: GAME_WIDTH/2, y: GAME_HEIGHT - 2*TILE_HEIGHT};
   this.nest = new GameTank.Nest(this, nestPosition, 'nest', 'nest');
   
   // 产生敌人
@@ -190,5 +194,11 @@ GameTank.GameState.prototype.gameOver = function() {
   game.add.tween(gameOverSprite).to({y:(game.height - 125) / 2}, 1000, "Linear", true);
   // 游戏结束声音
   this.soundManager.gameOver();
+  
+  gameOverSprite.inputEnabled = true;
+	gameOverSprite.events.onInputDown.add(returnDown, this);
 }
 
+function returnDown() {
+  game.state.start('StartState');
+}

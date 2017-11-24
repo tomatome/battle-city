@@ -16,6 +16,7 @@ GameTank.Player1 = function(gameState, position, texture, group, properties) {
 	this.buttonA = this.pad.addButton(20, game.height-50, 'generic', 'button1-up', 'button1-down');
 	this.buttonA.sprite.scale.set(0.6)
 	this.buttonA.alignBottomRight(15);
+	this.buttonA.ALIGN_RIGHT = 96
 	this.buttonA.onDown.add(this.fire, this);
 };
 
