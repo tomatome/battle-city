@@ -10,7 +10,7 @@ GameTank.StartState = function () {
 GameTank.StartState.prototype = Object.create(GameTank.BaseState.prototype);
 GameTank.StartState.prototype.constructor = GameTank.StartState;
 
-GameTank.StartState.prototype.create = function () {
+GameTank.StartState.prototype.create = function () { 
   "use strict";
   
   var style = { font: "bold 22px 微软雅黑", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
