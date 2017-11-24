@@ -15,10 +15,7 @@ GameTank.GameState.prototype.create = function () {
   
   GAME_WIDTH = game.width-92;
 	GAME_HEIGHT = game.height;
-	LEVEL_ROW = GAME_HEIGHT/16+1>24?24:parseInt(GAME_HEIGHT/16+1);
-	LEVEL_COL = GAME_WIDTH/16+1>36?36:parseInt(GAME_WIDTH/16+1);
-  alert(GAME_WIDTH/16+1+":"+GAME_HEIGHT/16+1)
-  alert(LEVEL_ROW+":"+LEVEL_COL)
+	
   // 分数管理
   this.scoreManager = new GameTank.ScoreManager(this);
   this.scoreManager.setLevel(game.level);

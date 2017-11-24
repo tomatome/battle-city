@@ -27,8 +27,22 @@ GameTank.LevelManager.prototype.constructor = GameTank.LevelManager;
 
 GameTank.LevelManager.prototype.load = function(level) {
   this.levelJSON = game.cache.getJSON(level);
+  var curRow = GAME_HEIGHT/16+1>24?24:parseInt(GAME_HEIGHT/16+1);
+	var curCol = GAME_WIDTH/16+1>36?36:parseInt(GAME_WIDTH/16+1);
+	if (curRow%2) {
+		curRow = curRow-1;
+	}
+	if (curCol%2){
+		curCol = curCol-1;
+	}
+  var skipRow = (24 - curRow)/2;
+	var skipCol = (36 - curCol)/2;
   for(var i=0; i<LEVEL_ROW; i++) {
-    for(var j=0; j<LEVEL_COL; j++) {
+  	if ((i>=2) && (skipRow > 0)) {
+  		skipRow = skipRow - 1;
+  		continue
+  	}
+    for(var j=skipCol; j<LEVEL_COL-skipCol; j++) {
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
         tile.scale.setTo(1,1)
