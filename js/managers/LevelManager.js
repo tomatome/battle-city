@@ -14,9 +14,10 @@ GameTank.LevelManager = function(gameState) {
     5: "waterh"
   }
   this.map = [];
-  for(var i=0; i<24; i++) {
+  //console.log(LEVEL_ROW, LEVEL_COL)
+  for(var i=0; i<LEVEL_ROW; i++) {
   	this.map[i] = [];
-  	for(var j=0; j<36; j++) {
+  	for(var j=0; j<LEVEL_COL; j++) {
     	this.map[i][j] = undefined;
    }
   }
@@ -32,15 +33,16 @@ GameTank.LevelManager.prototype.load = function(level) {
   var skipRow = (24 - curRow)/2;
 	var skipCol = (36 - curCol)/2;
 	var curi = 0;
+	//console.log(skipRow, skipCol)
   for(var i=0; i<24; i++) {
   	if ((i>=2) && (skipRow > 0)) {
   		skipRow = skipRow - 1;
-  		continue
+  		continue;
   	}
   	var curj = 0;
     for(var j=0; j<36; j++) {
-    	if (j<skipCol || j> (36 - skipCol)) {
-    		continue
+    	if (j<skipCol || j> (36 - skipCol - 1)) {
+    		continue;
     	}
       if(this.levelJSON[i][j]) {
         var tile = this.gameState.groups.map[this.keyMap[this.levelJSON[i][j]]].getFirstExists(false);
@@ -48,17 +50,16 @@ GameTank.LevelManager.prototype.load = function(level) {
         tile.body.immovable = true;
         tile.reset(curj * TILE_WIDTH, curi * TILE_HEIGHT);
         tile.xIndex = curj;
-        tile.yIndex = curj;
+        tile.yIndex = curi;
         tile.type = this.levelJSON[curi][curj];
-        this.map[curi][curj] = tile;
-        curi = curi + 1;
-        curj = curj + 1;
+        this.map[curi][curj] = tile;  
       } else {
-        this.map[curi][curj] = undefined;
-        curi = curi + 1;
-        curj = curj + 1;
+      	//console.log(curi, curj)
+        this.map[curi][curj] = undefined;    
       }
+      curj = curj + 1;
     }
+    curi = curi + 1;
   }
 }
 
